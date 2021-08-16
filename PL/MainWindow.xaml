@@ -1,0 +1,122 @@
+﻿<Window x:Class="PL.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Retail Roundup" WindowState="Maximized" 
+        Icon="C:\Users\dp18\source\repos\WPFProject\Pictures\grocery-cart.png"
+        xmlns:uc="clr-namespace:PL.Controls"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}" >
+    <Grid x:Name="gridd"  >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="170*"/>
+            <ColumnDefinition Width="593*"/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                <GradientStop Color="#eecda3 " Offset="1"/>
+                <GradientStop Color="#faaca8" Offset="0.5"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+
+        <Label Content="Retail Roundup" FontSize="60" Foreground="#800f2f" VerticalAlignment="Top" HorizontalAlignment="Right" FontFamily="Freestyle Script" Margin="0,4,26,0" Grid.Column="1"/>
+
+        <Menu IsMainMenu="True" Name="HMenu"   VerticalAlignment="Top" Margin="0,10,150.5,0" >
+            <Menu.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel/>
+                </ItemsPanelTemplate>
+            </Menu.ItemsPanel>
+            <Menu.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#faaca8 " Offset="1"/>
+                    <GradientStop Color="#faaca8" Offset="0.5"/>
+                </LinearGradientBrush>
+            </Menu.Background>
+            <MenuItem >
+                <MenuItem.Icon   >
+                    <StackPanel x:Name="Icon" Width="30" HorizontalAlignment="Left" Background="Transparent" >
+                        <Image x:Name="iconPic" HorizontalAlignment="Left" Width="20" Height="20"  Source="C:\Users\dp18\source\repos\WPFProject\Pictures\outline_menu_black_24dp.png"/>
+                    </StackPanel>
+                </MenuItem.Icon>
+                <MenuItem Name="Orders"  Header="Orders" Click="MenuItem_Click">
+                    <MenuItem.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </MenuItem.ItemsPanel>
+                    <MenuItem.Icon>
+                        <StackPanel>
+                            <Image Width="15" Height="15" Source="C:\Users\dp18\source\repos\WPFProject\Pictures\checkout.png"/>
+                        </StackPanel>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Name="Graphs" Header="Graphs" Click="MenuItem_Click_1">
+                    <MenuItem.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </MenuItem.ItemsPanel>
+                    <MenuItem.Icon>
+                        <StackPanel>
+                            <Image Width="15" Height="15" Source="C:\Users\dp18\source\repos\WPFProject\Pictures\graph.png"/>
+                        </StackPanel>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Name="Recommendations"  Header="Recommendations" Click="MenuItem_Click_2">
+                    <MenuItem.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </MenuItem.ItemsPanel>
+                    <MenuItem.Icon>
+                        <StackPanel>
+                            <Image Width="15" Height="15" Source="C:\Users\dp18\source\repos\WPFProject\Pictures\reward.png"/>
+                        </StackPanel>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Name="Analyze"  Header="Analyze" Click="MenuItem_Click_3">
+                    <MenuItem.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </MenuItem.ItemsPanel>
+                    <MenuItem.Icon>
+                        <StackPanel>
+                            <Image Width="15" Height="15" Source="C:\Users\dp18\source\repos\WPFProject\Pictures\analyze.png"/>
+                        </StackPanel>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Name="Catalog"  Header="Catalog" Click="Catalog_Click">
+                    <MenuItem.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </MenuItem.ItemsPanel>
+                    <MenuItem.Icon>
+                        <StackPanel>
+                            <Image Width="15" Height="15" Source="C:\Users\dp18\source\repos\WPFProject\Pictures\catalog.png"/>
+                        </StackPanel>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+
+        <Frame   NavigationUIVisibility="Hidden"  Name="MPage" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="1,77,1,24"  Padding="0" Grid.ColumnSpan="2" />
+        <Label Content="© Dina Pinchuck and Odel Fhima 2021, Images/Icons from flaticon.com" Foreground="#800f2f" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Grid.Column="1" />
+    </Grid>
+
+</Window>

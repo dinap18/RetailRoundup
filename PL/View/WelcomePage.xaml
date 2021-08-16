@@ -1,0 +1,28 @@
+﻿<UserControl x:Class="PL.View.WelcomePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PL.View"
+      mc:Ignorable="d" 
+      >
+
+    <Grid>
+        <StackPanel Orientation="Horizontal"  >
+            <Separator Opacity="0" Width="20"/>
+            <Image Source="C:\Users\dp18\source\repos\WPFProject\Pictures\open2.png" HorizontalAlignment="Left"  />
+            <Separator Opacity="0" Width="70"/>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Right">
+                <TextBlock   TextWrapping="Wrap" FontSize="80"/>
+                <TextBlock x:Name="welcomeMessage" TextWrapping="Wrap" Foreground="#800f2f" Text="Welcome to Retail Roundup!" FontSize="35" FontWeight="SemiBold"/>
+                <TextBlock   TextWrapping="Wrap" FontSize="20"/>
+                <TextBlock  Text="• Update Previous Orders and Create New Ones"  Foreground="#800f2f" TextWrapping="Wrap" FontSize="16"/>
+                <TextBlock  TextWrapping="Wrap" FontSize="20"/>
+                <TextBlock  Text="• Look at Statistics and Graphs Based On Previous Orders" Foreground="#800f2f"  TextWrapping="Wrap" FontSize="16"/>
+                <TextBlock    TextWrapping="Wrap" FontSize="20"/>
+                <TextBlock  Text="• Get Machine Learning Based Recommendations on What to Buy Next" Foreground="#800f2f" TextWrapping="Wrap" FontSize="16"/>
+            </StackPanel>
+            <Separator Opacity="0" Width="20"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

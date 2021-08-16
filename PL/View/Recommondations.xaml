@@ -1,0 +1,52 @@
+﻿<UserControl
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PL.ViewModel" xmlns:converter="clr-namespace:PL.Converter"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:local1="clr-namespace:PL.Commands" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" x:Class="PL.ViewModel.Recommondations"
+      mc:Ignorable="d" >
+    <UserControl.DataContext>
+        <local:RecommendSelectionChangedViewModel/>
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <converter:ConvertImageList x:Key="label"/>
+            <local1:RecommendationPdfCommand x:Key="pdf"/>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <DataGrid x:Name="recommend"  Margin="0,50,0,40" HorizontalAlignment="Stretch" BorderThickness="1" AutoGenerateColumns="False"   ItemsSource="{Binding Data}" >
+           
+            <DataGrid.Background>
+                <SolidColorBrush Opacity="0"/>
+
+            </DataGrid.Background>
+            <DataGrid.Columns>
+                    <DataGridTemplateColumn IsReadOnly="True">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Height="25" Width="50" Source="{Binding name,Converter={StaticResource label}}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="Name" IsReadOnly="True" Binding="{Binding name}"/>
+                    <DataGridTextColumn Header="Price" IsReadOnly="True" Binding="{Binding price}"/>
+
+
+
+                </DataGrid.Columns>
+            </DataGrid>
+        <StackPanel Orientation="Horizontal">
+
+        <Label Content="Pick a Day to get Recommendations for: " FontSize="14" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+            <ComboBox SelectionChanged="dayOfWeek_SelectionChanged" Name="dayOfWeek" HorizontalAlignment="Left"  VerticalAlignment="Top" >
+               
+            </ComboBox>
+        </StackPanel>
+        <Button x:Name="pdfButton" Content="Export to PDF" Background="Transparent" BorderThickness="0" Foreground="SlateGray"  Command="{Binding Source={StaticResource pdf}}" 
+   CommandParameter="{Binding ElementName=dayOfWeek, Path=SelectedItem}"   IsEnabled="False" HorizontalAlignment="Right" Margin="226,223,0,0" VerticalAlignment="Bottom" />
+
+
+    </Grid>
+</UserControl>

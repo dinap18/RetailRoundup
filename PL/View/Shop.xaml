@@ -1,0 +1,43 @@
+﻿<Page x:Class="PL.View.Shop"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PL.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Shop">
+
+    <Grid Margin="0,-1,0.333,0.667" >
+
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                <GradientStop Color="#FFC1DDF0" Offset="1"/>
+                <GradientStop Color="#FF7CDEDE" Offset="0.07"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <DataGrid x:Name="stores" IsReadOnly="True" SelectedIndex="5" ItemsSource="{Binding Data}"  Margin="0,98,474,53" AutoGenerateColumns="False" SelectionChanged="stores_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Date" Binding="{Binding purchaseDate}"/>
+
+                <DataGridTextColumn Header="Store" Binding="{Binding seller}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid x:Name="data" AutoGenerateColumns="False"  ItemsSource="{Binding Data}"  HorizontalAlignment="Left" Height="299" Margin="477,98,0,0" VerticalAlignment="Top" Width="306" RenderTransformOrigin="0.5,0.5">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding productName}"/>
+                <DataGridTextColumn Header="Price" Binding="{Binding price}"/>
+                <DataGridTextColumn x:Name="Amount" Header="Amount" Binding="{Binding quantity}"/>
+                <DataGridTemplateColumn Header="Picture">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Height="25" Width="50" Source="{Binding picture}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

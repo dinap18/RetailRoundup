@@ -1,0 +1,49 @@
+﻿<UserControl xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+             x:Class="PL.View.menu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PL.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="20" d:DesignWidth="20">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                <GradientStop Color="#FFC1DDF0" Offset="1"/>
+                <GradientStop Color="#FF7CDEDE" Offset="0.07"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Menu IsMainMenu="True" DockPanel.Dock="Right" >
+            <MenuItem  Click="MenuItem_Click">
+                <MenuItem.Icon>
+                    <StackPanel>
+                        <Image Width="20" Height="20" Source="C:\Users\dp18\source\repos\WPFProject\Pictures\outline_menu_black_24dp.png"/>
+                    </StackPanel>
+                </MenuItem.Icon>
+
+                <MenuItem Header="Graphs" Click="MenuItem_Click_1">
+                    <MenuItem.Icon>
+                        <StackPanel>
+                            <Image Width="15" Height="15" Source="C:\Users\dp18\source\repos\WPFProject\Pictures\outline_analytics_black_24dp.png"/>
+                        </StackPanel>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Recommendations" Click="MenuItem_Click_2">
+                    <MenuItem.Icon>
+                        <StackPanel>
+                            <Image Width="15" Height="15" Source="C:\Users\dp18\source\repos\WPFProject\Pictures\outline_reviews_black_24dp.png"/>
+                        </StackPanel>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Analyze" Click="MenuItem_Click_3">
+                    <MenuItem.Icon>
+                        <StackPanel>
+                            <Image Width="15" Height="15" Source="C:\Users\dp18\source\repos\WPFProject\Pictures\outline_insights_black_24dp.png"/>
+                        </StackPanel>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+    </Grid>
+</UserControl>

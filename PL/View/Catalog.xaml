@@ -1,0 +1,86 @@
+﻿<UserControl
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PL.View"
+    xmlns:ViewModel="clr-namespace:PL.Commands"
+      xmlns:syncfusion="http://schemas.syncfusion.com/wpf" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:viewmodel="clr-namespace:PL.ViewModel" x:Class="PL.View.Catalog"
+      mc:Ignorable="d" >
+    <UserControl.DataContext>
+        <viewmodel:CatalogViewModel/>
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <viewmodel:CarouselButtonViewModel x:Key="vm"/>
+    </UserControl.Resources>
+    <Grid>
+        <Button x:Name="carouselButton" Click="carouselButton_Click" IsEnabled="True" VerticalAlignment="Top" HorizontalAlignment="Left" BorderThickness="0" CommandParameter="{Binding ElementName=ButtonImage, Path=Source}"  Command="{Binding Source={StaticResource vm}}"  Height="30" Width="30"  >
+        
+            <Button.Background>
+           
+            <ImageBrush  ImageSource="C:\Users\dp18\source\repos\WPFProject\Pictures\list.png">
+                   
+                </ImageBrush> 
+            </Button.Background>
+        </Button>
+
+        <Grid VerticalAlignment="Center" Margin="0,15,0,0">
+            <ListView Visibility="Hidden" ItemsSource="{Binding Data}" VerticalAlignment="Center" x:Name="myListView" Margin="0,15,0,12" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel  Orientation="Horizontal">
+                            <TextBlock ><InlineUIContainer>
+                                <Image Height="50" Width="50" Source="{Binding Icon}"/>
+                            </InlineUIContainer></TextBlock>
+                            <TextBlock Text="{Binding Text}" Padding="5 0 0 0"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+            <syncfusion:Carousel ScaleFraction="0.5" ItemsSource="{Binding Data}" ItemsPerPage="1" RadiusX="400" RadiusY="400"
+                         VisualMode="Standard"
+                         x:Name="carousel" >
+                <syncfusion:Carousel.ItemContainerStyle>
+                    <Style TargetType="{x:Type syncfusion:CarouselItem}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type syncfusion:CarouselItem}">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <Border x:Name="border">
+                                            <Grid>
+                                                <Ellipse Stroke="Transparent" 
+                                                 StrokeThickness="3"
+                                                 Fill="MistyRose"/>
+                                                <Border Margin="20">
+                                                    <Grid>
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="*"/>
+                                                            <RowDefinition Height="Auto"/>
+                                                        </Grid.RowDefinitions>
+                                                        <Viewbox >
+                                                            <Image Height="30" Width="30" Source="{Binding Icon}"/>
+                                                        </Viewbox>
+                                                        <TextBlock Text="{Binding Text}"
+                                                           FontWeight="Bold" 
+                                                           Grid.Row="1"
+                                                           HorizontalAlignment="Center" />
+                                                    </Grid>
+                                                </Border>
+                                            </Grid>
+                                        </Border>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </syncfusion:Carousel.ItemContainerStyle>
+            </syncfusion:Carousel>
+        </Grid>
+    </Grid>
+</UserControl>
