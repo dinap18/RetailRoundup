@@ -62,13 +62,13 @@
         </DataGrid>
         <Button x:Name="add" Click="add_Click"  VerticalAlignment="Bottom"  Margin="0,0,150,80" HorizontalAlignment="Right"  IsEnabled="False"  BorderThickness="0"    >
             <Button.Background>
-                <ImageBrush  ImageSource="C:\Users\dp18\source\repos\WPFProject\Pictures\add.png" />
+                <ImageBrush  ImageSource="\Pictures\add.png" />
             </Button.Background>
         </Button>
 
         <Button x:Name="remove" Click="remove_Click"  Margin="0,0,0,80"  HorizontalAlignment="Center" VerticalAlignment="Bottom" IsEnabled="False" BorderThickness="0"  RenderTransformOrigin="0.633,0.354"  >
             <Button.Background >
-                <ImageBrush  ImageSource="C:\Users\dp18\source\repos\WPFProject\Pictures\cancel.png" />
+                <ImageBrush  ImageSource="\Pictures\cancel.png" />
             </Button.Background>
         </Button>
         <Label Content="Store and Time" FontSize="14"  FontWeight="Bold"  FontFamily="Bookman Old Style" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="50,25,0,0"  />

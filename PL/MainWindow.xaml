@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="Retail Roundup" WindowState="Maximized" 
-        Icon="C:\Users\dp18\source\repos\WPFProject\Pictures\grocery-cart.png"
+        Icon="\Pictures\grocery-cart.png"
         xmlns:uc="clr-namespace:PL.Controls"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"

@@ -261,6 +261,69 @@
       <Name>DAL</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="qr-codes\1 - apple.png" />
+    <Content Include="qr-codes\10 - macbook.png" />
+    <Content Include="qr-codes\100 - headphones.png" />
+    <Content Include="qr-codes\101 - rubik.png" />
+    <Content Include="qr-codes\102 - puzzle.png" />
+    <Content Include="qr-codes\103 - ping-pong.png" />
+    <Content Include="qr-codes\104 - poker-cards.png" />
+    <Content Include="qr-codes\105 - art.png" />
+    <Content Include="qr-codes\106 - clip.png" />
+    <Content Include="qr-codes\107 - crayons.png" />
+    <Content Include="qr-codes\108 - cutter.png" />
+    <Content Include="qr-codes\109 - stapler.png" />
+    <Content Include="qr-codes\11 - powderblush.png" />
+    <Content Include="qr-codes\110 - glue.png" />
+    <Content Include="qr-codes\111 - scissors.png" />
+    <Content Include="qr-codes\112 - pencil-sharpener.png" />
+    <Content Include="qr-codes\113 - highlighters.png" />
+    <Content Include="qr-codes\12 - mattelipstick.png" />
+    <Content Include="qr-codes\13 - eyeshadowx9.png" />
+    <Content Include="qr-codes\14 - monoplydeal.png" />
+    <Content Include="qr-codes\15 - monoplyjunior.png" />
+    <Content Include="qr-codes\17 - phonecharger.png" />
+    <Content Include="qr-codes\18 - notebooks.png" />
+    <Content Include="qr-codes\19 - pen.png" />
+    <Content Include="qr-codes\2 - pear.png" />
+    <Content Include="qr-codes\3 - popcorn.png" />
+    <Content Include="qr-codes\4 - pizza.png" />
+    <Content Include="qr-codes\5 - shirt.png" />
+    <Content Include="qr-codes\6 - fancyshirt.png" />
+    <Content Include="qr-codes\7 - pants.png" />
+    <Content Include="qr-codes\71 - hot-dog.png" />
+    <Content Include="qr-codes\72 - roasted-chicken.png" />
+    <Content Include="qr-codes\73 - burger.png" />
+    <Content Include="qr-codes\74 - noodles.png" />
+    <Content Include="qr-codes\75 - carrot.png" />
+    <Content Include="qr-codes\76 - taco.png" />
+    <Content Include="qr-codes\77 - orange.png" />
+    <Content Include="qr-codes\78 - bread.png" />
+    <Content Include="qr-codes\79 - watermelon.png" />
+    <Content Include="qr-codes\8 - ombreskirt.png" />
+    <Content Include="qr-codes\80 - cheese.png" />
+    <Content Include="qr-codes\81 - salad.png" />
+    <Content Include="qr-codes\82 - corn.png" />
+    <Content Include="qr-codes\83 - dress.png" />
+    <Content Include="qr-codes\84 - cap.png" />
+    <Content Include="qr-codes\85 - coat.png" />
+    <Content Include="qr-codes\86 - suit.png" />
+    <Content Include="qr-codes\87 - leather-jacket.png" />
+    <Content Include="qr-codes\88 - scarf.png" />
+    <Content Include="qr-codes\89 - makeup-brush.png" />
+    <Content Include="qr-codes\9 - skirt.png" />
+    <Content Include="qr-codes\90 - concealer.png" />
+    <Content Include="qr-codes\91 - bronzer.png" />
+    <Content Include="qr-codes\92 - mascara.png" />
+    <Content Include="qr-codes\93 - makeup-remover.png" />
+    <Content Include="qr-codes\94 - desktop.png" />
+    <Content Include="qr-codes\95 - tv.png" />
+    <Content Include="qr-codes\96 - electronic-book.png" />
+    <Content Include="qr-codes\97 - iphone.png" />
+    <Content Include="qr-codes\98 - telephone.png" />
+    <Content Include="qr-codes\99 - earbuds.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

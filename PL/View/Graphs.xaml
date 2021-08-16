@@ -55,7 +55,7 @@
         </StackPanel>
         <Button x:Name="switchType" HorizontalAlignment="Left" VerticalAlignment="Top" Click="switchType_Click" BorderThickness="0" >
             <Button.Background>
-                <ImageBrush ImageSource="C:\Users\dp18\source\repos\WPFProject\Pictures\bar-chart.png"/>
+                <ImageBrush ImageSource="\Pictures\bar-chart.png"/>
             </Button.Background>
         </Button>
     </Grid>

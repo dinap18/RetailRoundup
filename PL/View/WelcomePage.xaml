@@ -10,7 +10,7 @@
     <Grid>
         <StackPanel Orientation="Horizontal"  >
             <Separator Opacity="0" Width="20"/>
-            <Image Source="C:\Users\dp18\source\repos\WPFProject\Pictures\open2.png" HorizontalAlignment="Left"  />
+            <Image Source="\Pictures\open2.png" HorizontalAlignment="Left"  />
             <Separator Opacity="0" Width="70"/>
             <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Right">
                 <TextBlock   TextWrapping="Wrap" FontSize="80"/>

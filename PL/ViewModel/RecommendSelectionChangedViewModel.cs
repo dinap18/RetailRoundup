@@ -35,7 +35,7 @@ namespace PL.ViewModel
             PropertyChangedEventHandler handler = PropertyChanged;
             if (handler != null)
             {
-                handler(this, new PropertyChangedEventArgs(name));
+                handler(this, new PropertyChangedEventArgs("recommend"));
             }
         }
 
@@ -50,12 +50,7 @@ namespace PL.ViewModel
         
         }
 
-        /* <i:Interaction.Triggers>
-                    <i:EventTrigger EventName="SelectionChanged">
-                        <i:InvokeCommandAction Command="{Binding SelectedItemChangedCommand}"  CommandParameter="{Binding ElementName=dayOfWeek, Path=SelectedItem}"/>
-                    </i:EventTrigger>
-                </i:Interaction.Triggers>
-         */
+      
         public void SelectedItemChangedHandler(object param)
         {
             DayOfWeek selectedItem = (DayOfWeek)param;

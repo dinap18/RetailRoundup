@@ -31,8 +31,11 @@ namespace PL.Commands
         {
             BL.BL db = new BL.BL();
             Purchase purchase = (Purchase)parameter;
-            Purchase realPurchase = db.GetPurchases().Where(x => x.purchaseDate == purchase.purchaseDate && x.seller == purchase.seller).First();
-            model.createPdf(realPurchase);
+            if (purchase.products != null)
+            {
+                Purchase realPurchase = db.GetPurchases().Where(x => x.purchaseDate == purchase.purchaseDate && x.seller.ToLower() == purchase.seller.ToLower()).First();
+                model.createPdf(realPurchase);
+            }
         }
     }
 }
