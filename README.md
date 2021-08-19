@@ -10,6 +10,8 @@ Retail Roundup is a WPF Application where the user can analyze  purchases, this 
 Retail Roundup was built with the following tools and techonlogies: C# .NET, WPF, multitier architecture, MVVM, micro frontends, Firebase, .NET entity framework, SQL Server, Accord, Livecharts, Material Design, PDFsharp, and QR codes.
 
 Menu:
+
+
 ![image](https://user-images.githubusercontent.com/57219508/130078278-9386c96e-751f-41ff-bd5a-90d6d241f98a.png)
 
 
