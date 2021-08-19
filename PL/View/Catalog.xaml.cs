@@ -26,7 +26,6 @@ namespace PL.View
         public Catalog()
         {
             InitializeComponent();  
-
         }
     }
 }

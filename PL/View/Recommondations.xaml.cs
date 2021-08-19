@@ -33,9 +33,6 @@ namespace PL.ViewModel
         public Recommondations()
         {
             InitializeComponent();
-
-            dayOfWeek.ItemsSource= new List<DayOfWeek> { DayOfWeek.Sunday ,DayOfWeek.Monday,DayOfWeek.Tuesday,DayOfWeek.Tuesday,DayOfWeek.Wednesday,
-            DayOfWeek.Thursday,DayOfWeek.Friday,DayOfWeek.Saturday};
         }
     }
 }

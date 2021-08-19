@@ -233,10 +233,16 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Commands\AddClickCommand.cs" />
     <Compile Include="Commands\CarouselButtonCommand.cs" />
+    <Compile Include="Commands\CatalogSelectedChangedCommand.cs" />
     <Compile Include="Commands\CommandHandler.cs" />
+    <Compile Include="Commands\DataSelectionChangedCommand.cs" />
+    <Compile Include="Commands\NewOrderCommand.cs" />
     <Compile Include="Commands\ReceiptCommand.cs" />
     <Compile Include="Commands\RecommendationPdfCommand.cs" />
+    <Compile Include="Commands\RemoveClickCommand.cs" />
+    <Compile Include="Commands\StoreSelectionChangedCommand.cs" />
     <Compile Include="Commands\SwitchUserControlCommand.cs" />
     <Compile Include="Controls\HamburgerMenu.xaml.cs">
       <DependentUpon>HamburgerMenu.xaml</DependentUpon>
@@ -259,6 +265,7 @@
     <Compile Include="Model\productCatalogWpf.cs" />
     <Compile Include="Model\ProductForWpf.cs" />
     <Compile Include="ViewModel\MenuViewModel.cs" />
+    <Compile Include="ViewModel\OrdersViewModel.cs" />
     <Compile Include="ViewModel\RecieptViewModel.cs" />
     <Compile Include="ViewModel\RecommendPdfViewModel.cs" />
     <Compile Include="ViewModel\RecommendSelectionChangedViewModel.cs" />
