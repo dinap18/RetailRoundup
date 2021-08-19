@@ -14,7 +14,7 @@ namespace PL.Converter
 
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-           return Directory.GetFiles("C:/Users/dp18/source/repos/WPFProject/ProductPictures", $"{value.ToString()}.png", SearchOption.AllDirectories)[0];
+           return Directory.GetFiles(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "//ProductPictures", $"{value.ToString()}.png", SearchOption.AllDirectories)[0];
 
         }
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)

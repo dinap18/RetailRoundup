@@ -49,7 +49,7 @@
             <MenuItem >
                 <MenuItem.Icon   >
                     <StackPanel x:Name="Icon" Width="30" HorizontalAlignment="Left" Background="Transparent" >
-                        <Image x:Name="iconPic" HorizontalAlignment="Left" Width="20" Height="20"  Source="C:\Users\dp18\source\repos\WPFProject\Pictures\outline_menu_black_24dp.png"/>
+                        <Image x:Name="iconPic" HorizontalAlignment="Left" Width="20" Height="20"  Source="\Pictures\outline_menu_black_24dp.png"/>
                     </StackPanel>
                 </MenuItem.Icon>
                 <MenuItem Name="Orders"  Header="Orders" Click="MenuItem_Click">
@@ -60,7 +60,7 @@
                     </MenuItem.ItemsPanel>
                     <MenuItem.Icon>
                         <StackPanel>
-                            <Image Width="15" Height="15" Source="C:\Users\dp18\source\repos\WPFProject\Pictures\checkout.png"/>
+                            <Image Width="15" Height="15" Source="\Pictures\checkout.png"/>
                         </StackPanel>
                     </MenuItem.Icon>
                 </MenuItem>
@@ -72,7 +72,7 @@
                     </MenuItem.ItemsPanel>
                     <MenuItem.Icon>
                         <StackPanel>
-                            <Image Width="15" Height="15" Source="C:\Users\dp18\source\repos\WPFProject\Pictures\graph.png"/>
+                            <Image Width="15" Height="15" Source="\Pictures\graph.png"/>
                         </StackPanel>
                     </MenuItem.Icon>
                 </MenuItem>
@@ -84,7 +84,7 @@
                     </MenuItem.ItemsPanel>
                     <MenuItem.Icon>
                         <StackPanel>
-                            <Image Width="15" Height="15" Source="C:\Users\dp18\source\repos\WPFProject\Pictures\reward.png"/>
+                            <Image Width="15" Height="15" Source="\Pictures\reward.png"/>
                         </StackPanel>
                     </MenuItem.Icon>
                 </MenuItem>
@@ -96,7 +96,7 @@
                     </MenuItem.ItemsPanel>
                     <MenuItem.Icon>
                         <StackPanel>
-                            <Image Width="15" Height="15" Source="C:\Users\dp18\source\repos\WPFProject\Pictures\analyze.png"/>
+                            <Image Width="15" Height="15" Source="\Pictures\analyze.png"/>
                         </StackPanel>
                     </MenuItem.Icon>
                 </MenuItem>
@@ -108,7 +108,7 @@
                     </MenuItem.ItemsPanel>
                     <MenuItem.Icon>
                         <StackPanel>
-                            <Image Width="15" Height="15" Source="C:\Users\dp18\source\repos\WPFProject\Pictures\catalog.png"/>
+                            <Image Width="15" Height="15" Source="\Pictures\catalog.png"/>
                         </StackPanel>
                     </MenuItem.Icon>
                 </MenuItem>

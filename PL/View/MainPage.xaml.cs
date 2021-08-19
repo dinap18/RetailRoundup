@@ -74,7 +74,7 @@ namespace PL.View
                     category = prod.category;
 
 
-                    string[] files = Directory.GetFiles("C:/Users/dp18/source/repos/WPFProject/ProductPictures", $"{prod.productName}.png", SearchOption.AllDirectories);
+                    string[] files = Directory.GetFiles(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "//ProductPictures", $"{prod.productName}.png", SearchOption.AllDirectories);
 
                     p.Add(new ViewModel.ProductForWpf(prod.productName, files[0], g.Count(), prod.price));
                     totalPrice += prod.price * g.Count();
@@ -88,7 +88,7 @@ namespace PL.View
                 {
                     Product prod = g.First();
 
-                    string[] files = Directory.GetFiles("C:/Users/dp18/source/repos/WPFProject/ProductPictures", $"{prod.productName}.png", SearchOption.AllDirectories);
+                    string[] files = Directory.GetFiles(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "//ProductPictures", $"{prod.productName}.png", SearchOption.AllDirectories);
 
                     catalogProd.Add(new ViewModel.productCatalogWpf(prod.productName, files[0], prod.price));
                    
@@ -128,7 +128,7 @@ namespace PL.View
                     category = prod.category;
 
 
-                    string[] files = Directory.GetFiles("C:/Users/dp18/source/repos/WPFProject/ProductPictures", $"{prod.productName}.png", SearchOption.AllDirectories);
+                    string[] files = Directory.GetFiles(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "//ProductPictures", $"{prod.productName}.png", SearchOption.AllDirectories);
 
                     p.Add(new ViewModel.ProductForWpf(prod.productName, files[0], g.Count(), prod.price));
                     totalPrice += prod.price * g.Count();
@@ -141,7 +141,7 @@ namespace PL.View
                 {
                     Product prod = g.First();
 
-                    string[] files = Directory.GetFiles("C:/Users/dp18/source/repos/WPFProject/ProductPictures", $"{prod.productName}.png", SearchOption.AllDirectories);
+                    string[] files = Directory.GetFiles(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "//ProductPictures", $"{prod.productName}.png", SearchOption.AllDirectories);
 
                     catalogProd.Add(new ViewModel.productCatalogWpf(prod.productName, files[0], prod.price));
                 }
@@ -181,7 +181,7 @@ namespace PL.View
             {
                 Product prodd = g.First();
 
-                string[] files = Directory.GetFiles("C:/Users/dp18/source/repos/WPFProject/ProductPictures", $"{prodd.productName}.png", SearchOption.AllDirectories);
+                string[] files = Directory.GetFiles(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "//ProductPictures", $"{prodd.productName}.png", SearchOption.AllDirectories);
 
                 p.Add(new ViewModel.ProductForWpf(prodd.productName, files[0], g.Count(), prodd.price));
                 totalPrice += prodd.price * g.Count();
@@ -219,7 +219,7 @@ namespace PL.View
                 {
                     Product prodd = g.First();
 
-                    string[] files = Directory.GetFiles("C:/Users/dp18/source/repos/WPFProject/ProductPictures", $"{prodd.productName}.png", SearchOption.AllDirectories);
+                    string[] files = Directory.GetFiles(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "//ProductPictures", $"{prodd.productName}.png", SearchOption.AllDirectories);
 
                     p.Add(new ViewModel.ProductForWpf(prodd.productName, files[0], g.Count(), prodd.price));
                     totalPrice += prodd.price * g.Count();
@@ -258,7 +258,7 @@ namespace PL.View
             {
                 Product prod = g.First();
 
-                string[] files = Directory.GetFiles("C:/Users/dp18/source/repos/WPFProject/ProductPictures", $"{prod.productName}.png", SearchOption.AllDirectories);
+                string[] files = Directory.GetFiles(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "//ProductPictures", $"{prod.productName}.png", SearchOption.AllDirectories);
 
                 catalogProd.Add(new ViewModel.productCatalogWpf(prod.productName, files[0], prod.price));
             }

@@ -18,7 +18,7 @@
         
             <Button.Background>
            
-            <ImageBrush  ImageSource="C:\Users\dp18\source\repos\WPFProject\Pictures\list.png">
+            <ImageBrush  ImageSource="\Pictures\list.png">
                    
                 </ImageBrush> 
             </Button.Background>

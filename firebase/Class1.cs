@@ -22,9 +22,9 @@ namespace firebase
         public static void Main(string[] args)
         {
             List<string> links = new List<string>   
-            { "C:/Users/dp18/source/repos/WPFProject/qr-codes/84 - cap.png",
-            "C:/Users/dp18/source/repos/WPFProject/qr-codes/85 - coat.png",
-            "C:/Users/dp18/source/repos/WPFProject/qr-codes/86 - suit.png",
+            { Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName+"\\qr-codes\\84 - cap.png",
+            Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName+"\\qr-codes\\85 - coat.png",
+            Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName+"\\qr-codes\\86 - suit.png",
 
             };
               foreach(var link in links)
@@ -40,12 +40,12 @@ namespace firebase
         public async static Task stam(string link)
         {
             var stream = File.Open(@link, FileMode.Open);
-            var splitUpFileName = link.ToString().Split('/',' ');
-            string id = splitUpFileName[7];
+            var splitUpFileName = link.ToString().Split('\\',' ');
+            string id = splitUpFileName[9];
             Console.WriteLine(id);
             // Construct FirebaseStorage with path to where you want to upload the file and put it there
             var task = new FirebaseStorage("wpf-project-315413.appspot.com")
-             .Child($"December 21/ {id}")
+             .Child($"December 12/ {id}")
              .PutAsync(stream);
 
             // Track progress of the upload
@@ -96,7 +96,7 @@ namespace firebase
             BL.BL db = new BL.BL();
             var purchase = new Purchase
             {
-                purchaseDate = new DateTime(2021, 12, 21),
+                purchaseDate = new DateTime(2021, 12, 12),
                 registerNumber = 1,
                 seller = name,
                 products = prods,

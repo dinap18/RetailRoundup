@@ -20,7 +20,7 @@ namespace PL.ViewModel
             PdfPage pdfPage = pdf.AddPage();
             XGraphics graph = XGraphics.FromPdfPage(pdfPage);
             XFont font = new XFont("Verdana", 14, XFontStyle.Bold);
-            XImage image = XImage.FromFile("C:/Users/dp18/source/repos/WPFProject/Pictures/grocery-cart.png");
+            XImage image = XImage.FromFile(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName+"//Pictures/grocery-cart.png");
             graph.DrawImage(image, 50, 50, 70, 70);
 
             if (realPurchase.products != null)
@@ -41,7 +41,7 @@ namespace PL.ViewModel
 
                     var prodd = g.FirstOrDefault();
 
-                    string[] files = Directory.GetFiles("C:/Users/dp18/source/repos/WPFProject/ProductPictures", $"{prodd.productName}.png", SearchOption.AllDirectories);
+                    string[] files = Directory.GetFiles(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName+"//ProductPictures", $"{prodd.productName}.png", SearchOption.AllDirectories);
                     XImage prodImage = XImage.FromFile(files[0]);
 
                     graph.DrawImage(prodImage, 100, currentY - 10, 20, 20);

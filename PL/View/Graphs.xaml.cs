@@ -5,6 +5,7 @@ using LiveCharts.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -656,7 +657,7 @@ namespace PL.ViewModel
                 BitmapImage bitmap = new BitmapImage();
                 bitmap.BeginInit();
 
-                bitmap.UriSource = new Uri("C:/Users/dp18/source/repos/WPFProject/Pictures/pie-chart.png", UriKind.Absolute);
+                bitmap.UriSource = new Uri(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName+"//Pictures/pie-chart.png", UriKind.Absolute);
                 bitmap.EndInit();
                 brush.ImageSource = bitmap;
                 button.Background = brush;
@@ -671,7 +672,7 @@ namespace PL.ViewModel
                 BitmapImage bitmap = new BitmapImage();
                 bitmap.BeginInit();
 
-                bitmap.UriSource = new Uri("C:/Users/dp18/source/repos/WPFProject/Pictures/bar-chart.png", UriKind.Absolute);
+                bitmap.UriSource = new Uri(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName+"//Pictures/bar-chart.png", UriKind.Absolute);
                 bitmap.EndInit();
                 brush.ImageSource = bitmap;
                 button.Background = brush;

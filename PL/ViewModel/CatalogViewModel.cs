@@ -18,7 +18,7 @@ namespace PL.ViewModel
             {
                 var prod = g.First();
                 string name = prod.productName;
-                string path = Directory.GetFiles("C:/Users/dp18/source/repos/WPFProject/ProductPictures", $"{prod.productName}.png", SearchOption.AllDirectories)[0];
+                string path = Directory.GetFiles(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName+"//ProductPictures", $"{prod.productName}.png", SearchOption.AllDirectories)[0];
 
                 items.Add(new ItemForCatalog(path, name));
             }

@@ -25,7 +25,7 @@ namespace PL.ViewModel
             PdfPage pdfPage = pdf.AddPage();
             XGraphics graph = XGraphics.FromPdfPage(pdfPage);
             XFont font = new XFont("Verdana", 18, XFontStyle.Bold);
-            XImage image = XImage.FromFile("C:/Users/dp18/source/repos/WPFProject/Pictures/grocery-cart.png");
+            XImage image = XImage.FromFile(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName+"//Pictures/grocery-cart.png");
             graph.DrawImage(image, 50, 50, 70, 70);
             graph.DrawString($"Recommendations for {v.ToString()}", font, XBrushes.Black, new XRect(20, 70, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopCenter);
             int currentY = 200;
@@ -35,7 +35,7 @@ namespace PL.ViewModel
 
                 graph.DrawString(" " + g, new XFont("Verdama", 14, XFontStyle.Regular), XBrushes.Black, new XPoint(100, currentY));
 
-                string[] files = Directory.GetFiles("C:/Users/dp18/source/repos/WPFProject/ProductPictures", $"{g}.png", SearchOption.AllDirectories);
+                string[] files = Directory.GetFiles(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName+"//ProductPictures", $"{g}.png", SearchOption.AllDirectories);
                 XImage prodImage = XImage.FromFile(files[0]);
 
                 graph.DrawImage(prodImage, 300, currentY - 10, 20, 20);

@@ -55,7 +55,7 @@ namespace PL.View
                 BitmapImage bitmap = new BitmapImage();
                 bitmap.BeginInit();
 
-                bitmap.UriSource = new Uri("C:/Users/dp18/source/repos/WPFProject/Pictures/carousel.png", UriKind.Absolute);
+                bitmap.UriSource = new Uri(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName+"//Pictures/carousel.png", UriKind.Absolute);
                 bitmap.EndInit();
                 brush.ImageSource = bitmap;
                 button.Background = brush;
@@ -70,7 +70,7 @@ namespace PL.View
                 BitmapImage bitmap = new BitmapImage();
                 bitmap.BeginInit();
 
-                bitmap.UriSource = new Uri("C:/Users/dp18/source/repos/WPFProject/Pictures/list.png", UriKind.Absolute);
+                bitmap.UriSource = new Uri(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName+"//Pictures/list.png", UriKind.Absolute);
                 bitmap.EndInit();
                 brush.ImageSource = bitmap;
                 button.Background = brush;
