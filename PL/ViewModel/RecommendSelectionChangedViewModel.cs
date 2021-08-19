@@ -40,20 +40,11 @@ namespace PL.ViewModel
         }
 
 
-        public ICommand SelectedItemChangedCommand
-        {
-            get
-            {
-                return _SelectedItemChangedCommand ?? (_SelectedItemChangedCommand =
-                           new CommandHandler(obj => SelectedItemChangedHandler(obj), _canExecute));
-            }
         
-        }
-
       
-        public void SelectedItemChangedHandler(object param)
+        public void SelectedItemChangedHandler(Recommondations param)
         {
-            DayOfWeek selectedItem = (DayOfWeek)param;
+            DayOfWeek selectedItem = (DayOfWeek)param.dayOfWeek.SelectedItem;
             BL.BL db = new BL.BL();
             List<string> recResults = new List<string>();
                 Recommender rec = new Recommender();
@@ -65,9 +56,10 @@ namespace PL.ViewModel
                     float price = prod.price;
                     source.Add(new productCatalogWpf(recc, null, price));
                 }
-                Printers = source;
-           
-              
+            param.recommend.ItemsSource = source;
+            param.pdfButton.IsEnabled = true;
+            ((MainWindow)System.Windows.Application.Current.MainWindow).MPage.Content = param;
+
         }
 
 

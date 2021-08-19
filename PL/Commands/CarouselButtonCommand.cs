@@ -1,4 +1,5 @@
-﻿using PL.ViewModel;
+﻿using PL.View;
+using PL.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,7 @@ namespace PL.Commands
 
         public void Execute(object parameter)
         {
-            model.switchContent();
+            model.switchContent((Catalog)parameter);
         }
     }
     }

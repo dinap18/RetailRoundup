@@ -1,11 +1,17 @@
 ﻿using PL.Commands;
+using PL.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace PL.ViewModel
 {
@@ -26,9 +32,38 @@ namespace PL.ViewModel
         }
         
 
-        internal void switchContent()
+        public  void switchContent(Catalog view)
         {
-            throw new NotImplementedException();
+            if (view.myListView.Visibility == Visibility.Hidden)
+            {
+                view.carousel.Visibility = Visibility.Hidden;
+                view.myListView.Visibility = Visibility.Visible;
+                Button button ;
+                ImageBrush brush = new ImageBrush();
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+
+                bitmap.UriSource = new Uri(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "//Pictures/carousel.png", UriKind.Absolute);
+                bitmap.EndInit();
+                brush.ImageSource = bitmap;
+                view.carouselButton.Background = brush;
+
+            }
+            else
+            {
+                view.carousel.Visibility = Visibility.Visible;
+                view.myListView.Visibility = Visibility.Hidden;
+                Button button;
+                ImageBrush brush = new ImageBrush();
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+
+                bitmap.UriSource = new Uri(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "//Pictures/list.png", UriKind.Absolute);
+                bitmap.EndInit();
+                brush.ImageSource = bitmap;
+                view.carouselButton.Background = brush;
+            }
+              ((MainWindow)System.Windows.Application.Current.MainWindow).MPage.Content =view;
         }
 
         private void OnPropertyChanged(string v)

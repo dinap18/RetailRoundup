@@ -53,6 +53,64 @@ namespace PL.View
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                foreach (var purchase in db.GetPurchases())
+                {
+                    if (purchase.products.Count() == 0)
+                    {
+                        db.removePurchase(purchase);
+                    }
+                }
+
+
+
+
+
                 List<ComboBoxItem> comboOptions = new List<ComboBoxItem>();
                 foreach (var g in db.GetStores())
                 {
@@ -271,6 +329,6 @@ namespace PL.View
             total.Text = "Total: 0";
         }
 
-     
+      
     }
 }

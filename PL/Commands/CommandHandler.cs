@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PL.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,7 @@ namespace PL.Commands
         private Action<object> _action;
         private bool _canExeute;
         public event EventHandler CanExecuteChanged;
-
+        RecommendSelectionChangedViewModel Model { get; set; }
         private bool canExeute
         {
             set
@@ -21,7 +22,10 @@ namespace PL.Commands
                 CanExecuteChanged(this, new EventArgs());
             }
         }
-
+        public CommandHandler()
+        {
+            Model = new RecommendSelectionChangedViewModel();
+        }
 
         public CommandHandler(Action<object> action, bool canExecute)
         {
@@ -30,12 +34,12 @@ namespace PL.Commands
         }
         public bool CanExecute(object parameter)
         {
-            return _canExeute;
+            return true;
         }
 
         public void Execute(object parameter)
         {
-            _action(parameter);
+            Model.SelectedItemChangedHandler((Recommondations)parameter);
         }
     }
 }

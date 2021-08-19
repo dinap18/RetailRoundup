@@ -6,7 +6,7 @@
         mc:Ignorable="d"
         Title="Retail Roundup" WindowState="Maximized" 
         Icon="\Pictures\grocery-cart.png"
-        xmlns:uc="clr-namespace:PL.Controls"
+        xmlns:uc="clr-namespace:PL.Controls" xmlns:local1="clr-namespace:PL.Commands"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
@@ -14,6 +14,11 @@
         TextOptions.TextRenderingMode="Auto"        
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}" >
+    <Window.Resources>
+        <ResourceDictionary>
+            <local1:SwitchUserControlCommand x:Key="switch"/>
+        </ResourceDictionary>
+    </Window.Resources>
     <Grid x:Name="gridd"  >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="170*"/>
@@ -52,7 +57,7 @@
                         <Image x:Name="iconPic" HorizontalAlignment="Left" Width="20" Height="20"  Source="\Pictures\outline_menu_black_24dp.png"/>
                     </StackPanel>
                 </MenuItem.Icon>
-                <MenuItem Name="Orders"  Header="Orders" Click="MenuItem_Click">
+                <MenuItem Name="Orders"   Header="Orders" Command="{Binding Source={StaticResource switch}}"  CommandParameter="{Binding Name, ElementName=Orders}">
                     <MenuItem.ItemsPanel>
                         <ItemsPanelTemplate>
                             <VirtualizingStackPanel Orientation="Horizontal"/>
@@ -64,7 +69,7 @@
                         </StackPanel>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Name="Graphs" Header="Graphs" Click="MenuItem_Click_1">
+                <MenuItem Name="Graphs" Header="Graphs" Command="{Binding Source={StaticResource switch}}"  CommandParameter="{Binding Name, ElementName=Graphs}">
                     <MenuItem.ItemsPanel>
                         <ItemsPanelTemplate>
                             <VirtualizingStackPanel Orientation="Horizontal"/>
@@ -76,7 +81,7 @@
                         </StackPanel>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Name="Recommendations"  Header="Recommendations" Click="MenuItem_Click_2">
+                <MenuItem Name="Recommendations"  Header="Recommendations" Command="{Binding Source={StaticResource switch}}"  CommandParameter="{Binding Name, ElementName=Recommendations}">
                     <MenuItem.ItemsPanel>
                         <ItemsPanelTemplate>
                             <VirtualizingStackPanel Orientation="Horizontal"/>
@@ -88,7 +93,7 @@
                         </StackPanel>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Name="Analyze"  Header="Analyze" Click="MenuItem_Click_3">
+                <MenuItem Name="Analyze"  Header="Analyze" Command="{Binding Source={StaticResource switch}}"  CommandParameter="{Binding Name, ElementName=Analyze}">
                     <MenuItem.ItemsPanel>
                         <ItemsPanelTemplate>
                             <VirtualizingStackPanel Orientation="Horizontal"/>
@@ -100,7 +105,7 @@
                         </StackPanel>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Name="Catalog"  Header="Catalog" Click="Catalog_Click">
+                <MenuItem Name="Catalog"  Header="Catalog" Command="{Binding Source={StaticResource switch}}"  CommandParameter="{Binding Name, ElementName=Catalog}">
                     <MenuItem.ItemsPanel>
                         <ItemsPanelTemplate>
                             <VirtualizingStackPanel Orientation="Horizontal"/>
@@ -115,7 +120,7 @@
             </MenuItem>
         </Menu>
 
-        <Frame   NavigationUIVisibility="Hidden"  Name="MPage" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="1,77,1,24"  Padding="0" Grid.ColumnSpan="2" />
+        <Frame    NavigationUIVisibility="Hidden"  Name="MPage" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="1,77,1,24"  Padding="0" Grid.ColumnSpan="2" />
         <Label Content="© Dina Pinchuck and Odel Fhima 2021, Images/Icons from flaticon.com" Foreground="#800f2f" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Grid.Column="1" />
     </Grid>
 

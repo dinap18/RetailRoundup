@@ -25,56 +25,8 @@ namespace PL.View
     {
         public Catalog()
         {
-            InitializeComponent();
-            
+            InitializeComponent();  
 
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        private void carouselButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (myListView.Visibility==Visibility.Hidden)
-            {
-                carousel.Visibility = Visibility.Hidden;
-                myListView.Visibility = Visibility.Visible;
-                Button button = sender as Button;
-                ImageBrush brush = new ImageBrush();
-                BitmapImage bitmap = new BitmapImage();
-                bitmap.BeginInit();
-
-                bitmap.UriSource = new Uri(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName+"//Pictures/carousel.png", UriKind.Absolute);
-                bitmap.EndInit();
-                brush.ImageSource = bitmap;
-                button.Background = brush;
-
-            }
-            else
-            {
-                carousel.Visibility = Visibility.Visible;
-                myListView.Visibility = Visibility.Hidden;
-                Button button = sender as Button;
-                ImageBrush brush = new ImageBrush();
-                BitmapImage bitmap = new BitmapImage();
-                bitmap.BeginInit();
-
-                bitmap.UriSource = new Uri(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName+"//Pictures/list.png", UriKind.Absolute);
-                bitmap.EndInit();
-                brush.ImageSource = bitmap;
-                button.Background = brush;
-            }
         }
     }
 }

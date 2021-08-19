@@ -237,6 +237,7 @@
     <Compile Include="Commands\CommandHandler.cs" />
     <Compile Include="Commands\ReceiptCommand.cs" />
     <Compile Include="Commands\RecommendationPdfCommand.cs" />
+    <Compile Include="Commands\SwitchUserControlCommand.cs" />
     <Compile Include="Controls\HamburgerMenu.xaml.cs">
       <DependentUpon>HamburgerMenu.xaml</DependentUpon>
     </Compile>
@@ -257,6 +258,7 @@
     <Compile Include="ViewModel\DaysOfWeekViewModel.cs" />
     <Compile Include="Model\productCatalogWpf.cs" />
     <Compile Include="Model\ProductForWpf.cs" />
+    <Compile Include="ViewModel\MenuViewModel.cs" />
     <Compile Include="ViewModel\RecieptViewModel.cs" />
     <Compile Include="ViewModel\RecommendPdfViewModel.cs" />
     <Compile Include="ViewModel\RecommendSelectionChangedViewModel.cs" />
