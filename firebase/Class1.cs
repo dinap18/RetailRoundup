@@ -17,8 +17,6 @@ namespace firebase
 {
     public class Class1
     {
-        private static List<Product> prods = new List<Product>();
-        private static string name;
         public static void Main(string[] args)
         {
             List<string> links = new List<string>   
@@ -45,7 +43,7 @@ namespace firebase
             Console.WriteLine(id);
             // Construct FirebaseStorage with path to where you want to upload the file and put it there
             var task = new FirebaseStorage("wpf-project-315413.appspot.com")
-             .Child($"December 12/ {id}")
+             .Child($"December 22/ {id}")
              .PutAsync(stream);
 
             // Track progress of the upload
@@ -60,6 +58,8 @@ namespace firebase
 
         }
 
+        private static List<Product> prods = new List<Product>();
+        private static string name;
         private static void showDetails(string downloadUrl)
         {
 
@@ -96,7 +96,7 @@ namespace firebase
             BL.BL db = new BL.BL();
             var purchase = new Purchase
             {
-                purchaseDate = new DateTime(2021, 12, 12),
+                purchaseDate = new DateTime(2021, 12, 22),
                 registerNumber = 1,
                 seller = name,
                 products = prods,
