@@ -33,8 +33,7 @@ namespace PL.Commands
             Purchase purchase = (Purchase)parameter;
             if (purchase.products != null)
             {
-                Purchase realPurchase = db.GetPurchases().Where(x => x.purchaseDate == purchase.purchaseDate && x.seller.ToLower() == purchase.seller.ToLower()).First();
-                model.createPdf(realPurchase);
+                model.createPdf(purchase);
             }
         }
     }

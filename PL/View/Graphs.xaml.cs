@@ -33,8 +33,8 @@ namespace PL.ViewModel
         public List<Product> purchased = new List<Product>();
 
         public SeriesCollection SeriesCollection { get; set; }
-        public SeriesCollection PieCollection { get; set; } 
-        
+        public SeriesCollection PieCollection { get; set; }
+
         public string[] Labels { get; set; }
         public Func<double, string> Formatter { get; set; }
         public Graphs()
@@ -141,7 +141,7 @@ namespace PL.ViewModel
                     }
                     else
                     {
-                        counts[j.productName][0]+=1;
+                        counts[j.productName][0] += 1;
                     }
                     purchased.Add(j);
                 }
@@ -157,9 +157,9 @@ namespace PL.ViewModel
                 labelNames.Add(name);
                 SeriesCollection.Add(new ColumnSeries { Title = name, Values = counts[name] });
 
-                
-        }
-            
+
+            }
+
             //Labels = purchased.Select(x=>x.productName).Distinct().ToArray();
             //   g.ItemsSource = forGraph;
             DataContext = this;
@@ -169,7 +169,7 @@ namespace PL.ViewModel
 
 
 
-         
+
             foreach (var i in db.GetPurchases())
             {
                 foreach (var j in i.products)
@@ -186,7 +186,7 @@ namespace PL.ViewModel
                     purchased.Add(j);
                 }
             }
-             groups = purchased.GroupBy(x => x.productName);
+            groups = purchased.GroupBy(x => x.productName);
             forGraph = new List<KeyValuePair<string, int>>();
             PieCollection = new SeriesCollection();
             labelNames = new List<string>();
@@ -243,7 +243,7 @@ namespace PL.ViewModel
                 var groups = purchased.GroupBy(x => x.productName);
                 List<KeyValuePair<string, int>> forGraph = new List<KeyValuePair<string, int>>();
                 SeriesCollection.Clear();
-                if (PieCollection.Count==0)
+                if (PieCollection.Count == 0)
                 {
                     PieCollection.Clear();
                 }
@@ -259,7 +259,7 @@ namespace PL.ViewModel
 
 
                 }
-               // Labels = purchased.Select(x => x.productName).Distinct().ToArray();
+                // Labels = purchased.Select(x => x.productName).Distinct().ToArray();
                 //   g.ItemsSource = forGraph;
                 DataContext = null;
                 graph.DataContext = this;
@@ -273,14 +273,14 @@ namespace PL.ViewModel
                 pickMonth.ItemsSource = db.GetProducts().Select(x => x.productName).Distinct().ToList();
 
             }
-        
+
             if (pickType.SelectedIndex == 4 || pickType.SelectedIndex == 5 || pickType.SelectedIndex == 6) // stores
             {
 
                 pickMonth.Visibility = Visibility.Visible;
 
                 pickWeek.Visibility = Visibility.Hidden;
-                pickMonth.ItemsSource = db.GetStores().Select(x=>x.name.ToLower()).Distinct().ToList();
+                pickMonth.ItemsSource = db.GetStores().Select(x => x.name.ToLower()).Distinct().ToList();
 
             }
             if (pickType.SelectedIndex == 7 || pickType.SelectedIndex == 8 || pickType.SelectedIndex == 9) // category
@@ -293,12 +293,12 @@ namespace PL.ViewModel
                     BE.Category.Food.ToString(),BE.Category.Stationery.ToString(),BE.Category.Toys.ToString() };
 
             }
-            if (pickType.SelectedIndex == 10 ) // price by month
+            if (pickType.SelectedIndex == 10) // price by month
             {
 
                 pickMonth.Visibility = Visibility.Visible;
                 pickWeek.Visibility = Visibility.Hidden;
-                pickMonth.ItemsSource = new List<string> { "1","2","3","4","5","6","7","8","9","10","11","12" };
+                pickMonth.ItemsSource = new List<string> { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" };
 
             }
         }
@@ -313,27 +313,28 @@ namespace PL.ViewModel
                 {
                     foreach (var i in db.GetPurchases().Where(x => x.products.Select(y => y.productName).Contains(pickMonth.SelectedItem)))
                     {
-                        
+
                         if (!counts.ContainsKey(i.purchaseDate.Month.ToString()))
                         {
                             counts[i.purchaseDate.Month.ToString()] = new ChartValues<int>();
                             counts[i.purchaseDate.Month.ToString()].Add(1);
 
-                            counts1[i.purchaseDate.Month.ToString()]=1;
+                            counts1[i.purchaseDate.Month.ToString()] = 1;
                         }
                         else
                         {
-                            counts1[i.purchaseDate.Month.ToString()]+= 1;
+                            counts1[i.purchaseDate.Month.ToString()] += 1;
                         }
 
                     }
                     var groups = db.GetPurchases().Where(x => x.products.Select(y => y.productName).Contains(pickMonth.SelectedItem)).GroupBy(x => x.purchaseDate.Month);
                     List<KeyValuePair<string, int>> forGraph = new List<KeyValuePair<string, int>>();
                     SeriesCollection.Clear();
-                    if (Pie.Visibility == Visibility.Visible && PieCollection.Count>0)
+                    if (Pie.Visibility == Visibility.Visible && PieCollection.Chart != null)
                     {
                         PieCollection.Clear();
                     }
+
                     List<string> labelNames = new List<string>();
                     foreach (var g in groups)
                     {
@@ -344,13 +345,13 @@ namespace PL.ViewModel
                         PieCollection.Add(new PieSeries { Title = name, Values = new ChartValues<ObservableValue> { new ObservableValue((double)counts1[name]) } });
 
                     }
-                    //   g.ItemsSource = forGraph;
+                    //   g.ItemsSource = forGraph
                     DataContext = null;
                     graph.DataContext = this;
 
                     pickWeek.Visibility = Visibility.Hidden;
                 }
-                if (pickType.SelectedIndex == 2 || pickType.SelectedIndex==3 ) // product by week or day
+                if (pickType.SelectedIndex == 2 || pickType.SelectedIndex == 3) // product by week or day
                 {
                     pickWeek.ItemsSource = db.GetPurchases().Where(x => x.products.Select(y => y.productName).Contains(pickMonth.SelectedItem)).Select(x => x.purchaseDate.Month).Distinct();
                     pickWeek.SelectedIndex = -1;
@@ -370,7 +371,7 @@ namespace PL.ViewModel
                 }
                 if (pickType.SelectedIndex == 8 || pickType.SelectedIndex == 9) // category by week or day
                 {
-                    pickWeek.ItemsSource = db.GetPurchases().Where(x => x.products.First().category.ToString()==pickMonth.SelectedItem.ToString()).Select(x => x.purchaseDate.Month).Distinct();
+                    pickWeek.ItemsSource = db.GetPurchases().Where(x => x.products.First().category.ToString() == pickMonth.SelectedItem.ToString()).Select(x => x.purchaseDate.Month).Distinct();
                     pickWeek.SelectedIndex = -1;
                     pickWeek.SelectedItem = null;
 
@@ -391,14 +392,14 @@ namespace PL.ViewModel
                         else
                         {
                             counts[i.purchaseDate.Month.ToString()][0] += 1;
-                            counts1[i.purchaseDate.Month.ToString()]+= 1;
+                            counts1[i.purchaseDate.Month.ToString()] += 1;
                         }
 
                     }
                     var groups = db.GetPurchases().Where(x => x.seller.ToLower() == pickMonth.SelectedItem.ToString().ToLower()).GroupBy(x => x.purchaseDate.Month);
                     List<KeyValuePair<string, int>> forGraph = new List<KeyValuePair<string, int>>();
                     SeriesCollection.Clear();
-                    if(Pie.Visibility==Visibility.Visible)
+                    if (PieCollection.Chart!=null)
                     {
                         PieCollection.Clear();
                     }
@@ -433,7 +434,7 @@ namespace PL.ViewModel
                     List<KeyValuePair<string, int>> forGraph = new List<KeyValuePair<string, int>>();
                     SeriesCollection.Clear();
 
-                    if (Pie.Visibility == Visibility.Visible)
+                    if (PieCollection.Chart!=null)
                     {
                         PieCollection.Clear();
                     }
@@ -472,7 +473,7 @@ namespace PL.ViewModel
                     var groups = db.GetPurchases().Where(x => x.products.First().category.ToString() == pickMonth.SelectedItem.ToString()).GroupBy(x => x.purchaseDate.Month);
                     List<KeyValuePair<string, int>> forGraph = new List<KeyValuePair<string, int>>();
                     SeriesCollection.Clear();
-                    if (Pie.Visibility == Visibility.Visible)
+                    if (PieCollection.Chart!=null)
                     {
                         PieCollection.Clear();
                     }
@@ -523,7 +524,7 @@ namespace PL.ViewModel
                         List<KeyValuePair<string, int>> forGraph = new List<KeyValuePair<string, int>>();
 
                         SeriesCollection.Clear();
-                        if (Pie.Visibility == Visibility.Visible)
+                        if (Pie.Visibility == Visibility.Visible && PieCollection.Chart!=null)
                         {
                             PieCollection.Clear();
                         }
@@ -562,7 +563,7 @@ namespace PL.ViewModel
                         var groups = db.GetPurchases().Where(x => x.products.Select(y => y.productName).Contains(pickMonth.SelectedItem.ToString()) && (x.purchaseDate.Month.ToString() == pickWeek.SelectedItem.ToString())).GroupBy(x => (int)x.purchaseDate.Day / 7);
                         List<KeyValuePair<string, int>> forGraph = new List<KeyValuePair<string, int>>();
                         SeriesCollection.Clear();
-                        if (Pie.Visibility == Visibility.Visible && PieCollection.Count!=0)
+                        if (Pie.Visibility == Visibility.Visible && PieCollection.Chart != null)
                         {
                             PieCollection.Clear();
                         }
@@ -582,7 +583,7 @@ namespace PL.ViewModel
                     }
                     if (pickType.SelectedIndex == 5)//store by week
                     {
-                        foreach (var i in db.GetPurchases().Where(x => x.seller.ToLower()==pickMonth.SelectedItem.ToString().ToLower() && (x.purchaseDate.Month.ToString() == pickWeek.SelectedItem.ToString())))
+                        foreach (var i in db.GetPurchases().Where(x => x.seller.ToLower() == pickMonth.SelectedItem.ToString().ToLower() && (x.purchaseDate.Month.ToString() == pickWeek.SelectedItem.ToString())))
                         {
                             int value = i.purchaseDate.Day / 7;
                             if (!counts.ContainsKey(value.ToString()))
@@ -598,10 +599,10 @@ namespace PL.ViewModel
                             }
 
                         }
-                        var groups = db.GetPurchases().Where(x => x.seller.ToLower()==pickMonth.SelectedItem.ToString().ToLower()&& (x.purchaseDate.Month.ToString() == pickWeek.SelectedItem.ToString())).GroupBy(x => (int)x.purchaseDate.Day / 7);
+                        var groups = db.GetPurchases().Where(x => x.seller.ToLower() == pickMonth.SelectedItem.ToString().ToLower() && (x.purchaseDate.Month.ToString() == pickWeek.SelectedItem.ToString())).GroupBy(x => (int)x.purchaseDate.Day / 7);
                         List<KeyValuePair<string, int>> forGraph = new List<KeyValuePair<string, int>>();
                         SeriesCollection.Clear();
-                        if (Pie.Visibility == Visibility.Visible)
+                        if (Pie.Visibility == Visibility.Visible && PieCollection.Chart!=null)
                         {
                             PieCollection.Clear();
                         }
@@ -622,7 +623,7 @@ namespace PL.ViewModel
                     if (pickType.SelectedIndex == 6)//store by day
                     {
 
-                        foreach (var i in db.GetPurchases().Where(x => x.seller.ToLower()==pickMonth.SelectedItem.ToString() && (x.purchaseDate.Month.ToString() == pickWeek.SelectedItem.ToString())))
+                        foreach (var i in db.GetPurchases().Where(x => x.seller.ToLower() == pickMonth.SelectedItem.ToString() && (x.purchaseDate.Month.ToString() == pickWeek.SelectedItem.ToString())))
                         {
                             int value = i.purchaseDate.Day;
                             if (!counts.ContainsKey(value.ToString()))
@@ -638,11 +639,11 @@ namespace PL.ViewModel
                             }
 
                         }
-                        var groups = db.GetPurchases().Where(x => x.seller.ToLower()==pickMonth.SelectedItem.ToString() && (x.purchaseDate.Month.ToString() == pickWeek.SelectedItem.ToString())).GroupBy(x => (int)x.purchaseDate.Day);
+                        var groups = db.GetPurchases().Where(x => x.seller.ToLower() == pickMonth.SelectedItem.ToString() && (x.purchaseDate.Month.ToString() == pickWeek.SelectedItem.ToString())).GroupBy(x => (int)x.purchaseDate.Day);
                         List<KeyValuePair<string, int>> forGraph = new List<KeyValuePair<string, int>>();
 
                         SeriesCollection.Clear();
-                        if (Pie.Visibility == Visibility.Visible)
+                        if (Pie.Visibility == Visibility.Visible && PieCollection.Chart!=null)
                         {
                             PieCollection.Clear();
                         }
@@ -662,7 +663,7 @@ namespace PL.ViewModel
                     }
                     if (pickType.SelectedIndex == 8)//category by week
                     {
-                        foreach (var i in db.GetPurchases().Where(x => x.products.First().category.ToString()==pickMonth.SelectedItem.ToString() && (x.purchaseDate.Month.ToString() == pickWeek.SelectedItem.ToString())))
+                        foreach (var i in db.GetPurchases().Where(x => x.products.First().category.ToString() == pickMonth.SelectedItem.ToString() && (x.purchaseDate.Month.ToString() == pickWeek.SelectedItem.ToString())))
                         {
                             int value = i.purchaseDate.Day / 7;
                             if (!counts.ContainsKey(value.ToString()))
@@ -681,7 +682,7 @@ namespace PL.ViewModel
                         var groups = db.GetPurchases().Where(x => x.products.First().category.ToString() == pickMonth.SelectedItem.ToString() && (x.purchaseDate.Month.ToString() == pickWeek.SelectedItem.ToString())).GroupBy(x => (int)x.purchaseDate.Day / 7);
                         List<KeyValuePair<string, int>> forGraph = new List<KeyValuePair<string, int>>();
                         SeriesCollection.Clear();
-                        if (Pie.Visibility == Visibility.Visible)
+                        if (Pie.Visibility == Visibility.Visible && PieCollection.Chart!=null)
                         {
                             PieCollection.Clear();
                         }
@@ -722,7 +723,7 @@ namespace PL.ViewModel
                         List<KeyValuePair<string, int>> forGraph = new List<KeyValuePair<string, int>>();
 
                         SeriesCollection.Clear();
-                        if (Pie.Visibility == Visibility.Visible)
+                        if (Pie.Visibility == Visibility.Visible && PieCollection.Chart!=null)
                         {
                             PieCollection.Clear();
                         }
@@ -740,7 +741,7 @@ namespace PL.ViewModel
                         //   g.ItemsSource = forGraph;
                         graph.DataContext = this;
                     }
-                 
+
                 }
             }
             catch (Exception ee)
@@ -762,7 +763,7 @@ namespace PL.ViewModel
                 BitmapImage bitmap = new BitmapImage();
                 bitmap.BeginInit();
 
-                bitmap.UriSource = new Uri(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName+"//Pictures/pie-chart.png", UriKind.Absolute);
+                bitmap.UriSource = new Uri(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "//Pictures/pie-chart.png", UriKind.Absolute);
                 bitmap.EndInit();
                 brush.ImageSource = bitmap;
                 button.Background = brush;
@@ -777,55 +778,52 @@ namespace PL.ViewModel
                 BitmapImage bitmap = new BitmapImage();
                 bitmap.BeginInit();
 
-                bitmap.UriSource = new Uri(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName+"//Pictures/bar-chart.png", UriKind.Absolute);
+                bitmap.UriSource = new Uri(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "//Pictures/bar-chart.png", UriKind.Absolute);
                 bitmap.EndInit();
                 brush.ImageSource = bitmap;
                 button.Background = brush;
                 counts.Clear();
-                pickType.SelectedIndex = 0;
+                Pie.DataContext=PieCollection;
                 pickMonth.SelectedItem = null;
+                pickType.SelectedItem = null;
                 pickWeek.SelectedItem = null;
-            }
-            counts.Clear();
-            pickType.SelectedIndex = 0;
-            pickMonth.SelectedItem = null;
-            pickWeek.SelectedItem = null;
-
-         Dictionary<string, double> counts1 = new Dictionary<string, double>();
-            foreach (var i in db.GetPurchases())
-            {
-                foreach (var j in i.products)
+                Dictionary<string, double> counts1 = new Dictionary<string, double>();
+                foreach (var i in db.GetPurchases())
                 {
-                    if (!counts1.ContainsKey(j.productName))
+                    foreach (var j in i.products)
                     {
-                        counts1[j.productName] = 0;
-                        counts1[j.productName]+=1;
+                        if (!counts1.ContainsKey(j.productName))
+                        {
+                            counts1[j.productName] = 0;
+                            counts1[j.productName] += 1;
+                        }
+                        else
+                        {
+                            counts1[j.productName] += 1;
+                        }
+                        purchased.Add(j);
                     }
-                    else
-                    {
-                        counts1[j.productName] += 1;
-                    }
-                    purchased.Add(j);
                 }
-            }
-            var groups = purchased.GroupBy(x => x.productName);
-            List<KeyValuePair<string, int>> forGraph = new List<KeyValuePair<string, int>>();
-            PieCollection = new SeriesCollection();
-            List<string> labelNames = new List<string>();
-            foreach (var g in groups)
-            {
-                int count = g.Count() - 1;
-                string name = g.First().productName;
-                labelNames.Add(name);
-                PieCollection.Add(new PieSeries { Title = name, Values = new ChartValues<ObservableValue> { new ObservableValue((double)counts1[name]) } });
+                var groups = purchased.GroupBy(x => x.productName);
+                List<KeyValuePair<string, int>> forGraph = new List<KeyValuePair<string, int>>();
+                PieCollection = new SeriesCollection();
+                List<string> labelNames = new List<string>();
+                foreach (var g in groups)
+                {
+                    int count = g.Count() - 1;
+                    string name = g.First().productName;
+                    labelNames.Add(name);
+                    PieCollection.Add(new PieSeries { Title = name, Values = new ChartValues<ObservableValue> { new ObservableValue((double)counts1[name]) } });
 
 
+                }
+                Labels = purchased.Select(x => x.productName).Distinct().ToArray();
+                //   g.ItemsSource = forGraph;
+                Pie.DataContext = this;
             }
-            Labels = purchased.Select(x => x.productName).Distinct().ToArray();
-            //   g.ItemsSource = forGraph;
-            Pie.DataContext = this;
+        
 
         }
     }
-    
+
 }

@@ -27,7 +27,7 @@ namespace PL.ViewModel
             {
                 var groups = realPurchase.products.GroupBy(x => x.productName);
                 graph.DrawString($"Receipt for Shopping at:  {realPurchase.seller}", font, XBrushes.Black, new XRect(20, 70, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopCenter);
-                graph.DrawString($"on {realPurchase.purchaseDate.Date}", font, XBrushes.Black, new XRect(20, 85, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopCenter);
+                graph.DrawString($"on {realPurchase.purchaseDate}", font, XBrushes.Black, new XRect(20, 85, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopCenter);
 
                 graph.DrawString("Product Name", new XFont("Verdama", 14, XFontStyle.Regular), XBrushes.Black, new XPoint(150, 200));
 

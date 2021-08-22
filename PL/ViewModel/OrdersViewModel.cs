@@ -68,7 +68,7 @@ namespace PL.ViewModel
 
                 page.total.Text = $"Total: {totalPrice}";
                 page.data.ItemsSource = p;
-
+                page.remove.IsEnabled = false;
                 ((MainWindow)System.Windows.Application.Current.MainWindow).MPage.Content = page;
 
             }
